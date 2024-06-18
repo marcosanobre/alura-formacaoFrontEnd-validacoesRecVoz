@@ -11,7 +11,16 @@ function verrificaSeOChutePossuiUmValorValido( chute ) {
     const numero = +chute; // Tenta Converter o Chute para Número
 
     if( chuteForInvalido(numero) ) {
-        elementoChute.innerHTML += '<div>Valor inválido !!!</div>';
+        if ( chute.toUpperCase() === 'GAME OVER' ) {
+            document.body.innerHTML = `
+            <h2>GAME OVER !!!</h2>
+            <h3>Pressione o botão para jogar novamente.</h3>
+            <button id="btnJogarNovamente" class="btn-jogar">Jogar Novamente</button>
+            `;
+            document.body.style.background = 'black';            
+        } else {
+            elementoChute.innerHTML += '<div>Valor inválido !!!</div>';            
+        }
         return;
     };
 
